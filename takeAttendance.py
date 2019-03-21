@@ -72,11 +72,10 @@ class Attendance:
         self.a = self.btn[y1]
         if self.a['bg'] == 'red':
             self.a['bg'] = 'green'
-            print(self.y1)
             with sqlite3.connect('login.db') as db:
                 c = db.cursor()
             add_attend = 'UPDATE maths SET {lec}=1 WHERE Roll = ?'.format(lec=t.lecture_entry1.get())
-            c.execute(add_attend, [int(self.y1)])
+            c.execute(add_attend, [int(y1)])
             db.commit()
             c.close()
         else:
@@ -86,11 +85,10 @@ class Attendance:
         self.a = self.btn1[y2]
         if self.a['bg'] == 'red':
             self.a['bg'] = 'green'
-            print(self.y2)
             with sqlite3.connect('login.db') as db:
                 c = db.cursor()
             add_attend = 'UPDATE maths SET {lec}=1 WHERE Roll = ?'.format(lec=t.lecture_entry1.get())
-            c.execute(add_attend, [int(self.y2)])
+            c.execute(add_attend, [int(y2)])
             db.commit()
             c.close()
         else:
